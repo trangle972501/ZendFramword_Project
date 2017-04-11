@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <script src="/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <h1><center> Welcome to home page </center> </h1>
+        <div id="container">
+            <table class="table table-bordered">
+                <thead class="active">
+                    <tr class="info">
+                        <th align='center'>ID Của Người Dùng</th>
+                        <th align='center'>Email</th>
+                        <th align='center'>Điện thoại</th>
+                        <th align='center'>Tên người dùng</th>
+                        <th align='center'>Ảnh đại diện</th>
+                        <th align='center'>Quyền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        foreach($this->data as $item){
+                          echo "<tr>" ;
+                          echo "<td align='center'>".$item['ID_NGUOI_DUNG']."</td>";
+                          echo "<td align='center'>".$item['EMAIL']."</td>";
+                          echo "<td align='center'>".$item['DIEN_THOAI']."</td>";
+                          echo "<td align='center'>".$item['TEN_NGUOI_DUNG']."</td>";
+                          echo "<td align='center'>".$item['ANH_DAI_DIEN']."</td>";
+                          if($item['QUYEN'] == 'ADMIN') {
+                              echo "<td align='center'>Amin</td>";
+                          }else{
+                              echo "<td align='center'>User</td>";
+                          }
+                          echo "</tr>";
+                        }
+                    ?>                   
+                </tbody>               
+            </table>
+                <?php 
+                echo $this->paginationControl($this->data, 'Sliding' , 'index/pagination.phtml'); 
+                ?>
+                <a href="/auth/index/login"><input type=button" value="logout" class="btn btn-danger"></a>
+                 <!-- <button type="button" class="btn btn-danger">Logout</button>-->
+          
+            <!--<input type="button" value="Logout" class="btn btn-danger" onclick="/auth/index/login">-->
+        </div>
+        
+    </body>
+</html>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
